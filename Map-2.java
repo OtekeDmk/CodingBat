@@ -6,7 +6,7 @@ word0(["a", "b", "a", "c", "b"]) → {"a": 0, "b": 0, "c": 0}
 word0(["c", "b", "a"]) → {"a": 0, "b": 0, "c": 0}
 */
 public Map<String, Integer> word0(String[] strings) {
-  Map<String, Integer> map = new HashMap();
+  Map<String, Integer> map = new HashMap<>();
   for (String s:strings) {
     map.put(s, 0);
   }
@@ -40,7 +40,7 @@ pairs(["man", "moon", "main"]) → {"m": "n"}
 pairs(["man", "moon", "good", "night"]) → {"g": "d", "m": "n", "n": "t"}
 */
 public Map<String, String> pairs(String[] strings) {
-  Map<String, String> map = new HashMap();
+  Map<String, String> map = new HashMap<>();
   for (String s:strings) 
   map.put (s.substring(0,1), s.substring(s.length()-1));
   
@@ -95,12 +95,30 @@ public Map<String, String> firstChar(String[] strings) {
     return map;
 }
 /*
- wordAppend 
+wordAppend 
+
 Loop over the given array of strings to build a result string like this: when a string appears the 2nd, 4th, 6th, etc. time in the array, append the string to the result. Return the empty string if no string appears a 2nd time.
 
 wordAppend(["a", "b", "a"]) → "a"
 wordAppend(["a", "b", "a", "c", "a", "d", "a"]) → "aa"
 wordAppend(["a", "", "a"]) → "a"
-
 */
+public String wordAppend(String[] strings) {
 
+  String res = "";
+  Map<String, Integer> map=new HashMap<>();
+  
+  for (String s:strings) 
+  {
+    int i = 1;
+    if (map.containsKey(s)) 
+    {
+      i = map.get(s) + 1;
+      map.put(s, i);
+      if (i%2 == 0) {   
+            res=res + s;
+                  }
+    } else map.put(s, i); // the first operation
+  }
+  return res;
+}
