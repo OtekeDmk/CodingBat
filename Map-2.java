@@ -206,6 +206,22 @@ firstSwap(["ax", "bx", "ay", "by", "ai", "aj", "bx", "by"]) → ["ay", "by", "ax
 */
 public String[] firstSwap(String[] strings) { 
 
+   Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i<strings.length; i++) {
+            
+            char a = strings[i].charAt(0);
+            
+            if(!map.containsKey(a))
+               map.put(a, i);
+            
+            else if(!map.get(a).equals(-1)){
+                    String swp = strings[i];
+                    strings[i] = strings[map.get(a)];
+                    strings[map.get(a)] = swp;
+                    map.put(a, -1);
+            }
+        } 
+  return strings;
 
 }  
 /* 
