@@ -194,7 +194,34 @@ public String[] allSwap(String[] strings) {
             }
         }
         return str;
-        */
+     */
+
+/*
+firstSwap 
+We'll say that 2 strings "match" if they are non-empty and their first chars are the same. Loop over and then return the given array of non-empty strings as follows: if a string matches an earlier string in the array, swap the 2 strings in the array. A particular first char can only cause 1 swap, so once a char has caused a swap, its later swaps are disabled. Using a map, this can be solved making just one pass over the array. More difficult than it looks.
+
+firstSwap(["ab", "ac"]) → ["ac", "ab"]
+firstSwap(["ax", "bx", "cx", "cy", "by", "ay", "aaa", "azz"]) → ["ay", "by", "cy", "cx", "bx", "ax", "aaa", "azz"]
+firstSwap(["ax", "bx", "ay", "by", "ai", "aj", "bx", "by"]) → ["ay", "by", "ax", "bx", "ai", "aj", "bx", "by"]
+*/
+public String[] firstSwap(String[] strings) { 
 
 
-
+}  
+/* 
+   // All test is correct, but it is a wrong code! bugaga ;D
+   
+   Map<Character, Integer> map = new HashMap<>();
+      for (int i = 0; i < strings.length; i++) {
+         char ch = strings[i].charAt(0); 
+         Integer r = map.remove(ch);
+            if (r != null && r<3) {
+               int j = r; 
+               String a = strings[j];
+               strings[j] = strings[i];
+               strings[i] = a;
+            }
+            else  map.put(ch, i); 
+    }
+    return strings;
+    */
