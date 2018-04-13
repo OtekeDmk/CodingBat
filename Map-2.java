@@ -166,7 +166,7 @@ public String[] allSwap(String[] strings) {
 
         if (r != null) {
              int j = r; 
-             String swap = strings[j];
+             String swapp = strings[j];
             strings[j] = strings[i];
             strings[i] = swapp;
         } else {
